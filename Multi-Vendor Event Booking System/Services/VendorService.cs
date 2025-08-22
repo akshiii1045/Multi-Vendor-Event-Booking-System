@@ -88,7 +88,7 @@ namespace Multi_Vendor_Event_Booking_System.Services
             //    return new ConflictObjectResult("Vendor cannot be deleted as bookings are there.");
 
             //await _vendorRepository.DeleteAsync(vendor);
-
+            //hiii2
             //hello world
 
             await _sqlRepository.ExecuteNonQueryAsync(
