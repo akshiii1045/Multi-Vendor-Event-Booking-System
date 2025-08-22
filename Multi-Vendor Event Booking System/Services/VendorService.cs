@@ -86,7 +86,6 @@ namespace Multi_Vendor_Event_Booking_System.Services
 
             //await _vendorRepository.DeleteAsync(vendor);
 
-            //return new OkObjectResult("Vendor deleted successfully.");
 
             await _sqlRepository.ExecuteNonQueryAsync(
                 "sp_DeleteVendor",
