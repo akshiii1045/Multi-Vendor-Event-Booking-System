@@ -1,4 +1,4 @@
-﻿//Change from main branch
+﻿//Final resolved version
 
 using AutoMapper;
 using FluentValidation;
