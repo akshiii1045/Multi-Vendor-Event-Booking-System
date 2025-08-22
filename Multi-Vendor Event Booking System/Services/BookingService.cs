@@ -45,7 +45,7 @@ namespace Multi_Vendor_Event_Booking_System.Services
             if (!service.isActive)
                 return new BadRequestObjectResult("Booking cannot be made as the service is inactive");
 
-            if (!DateTime.TryParse(dto.StartDate,out DateTime startDate) || !DateTime.TryParse(dto.EndDate, out DateTime endDate))
+            if (!DateTime.TryParse(dto.StartDate, out DateTime startDate) || !DateTime.TryParse(dto.EndDate, out DateTime endDate))
             {
                 return new BadRequestObjectResult("Invalid start or end date format.It should be (YYYY-MM-DD)");
             }
@@ -53,9 +53,9 @@ namespace Multi_Vendor_Event_Booking_System.Services
             if (startDate >= endDate)
                 return new BadRequestObjectResult("Start date must be before end date.");
 
-            var hasOverlap = await _bookingRepository.BookAsync(b => 
-            b.Service_CatalogId == dto.Service_CatalogId && 
-            b.Status != Data.Config.BookingStatus.Cancelled && b.StartDate < endDate && 
+            var hasOverlap = await _bookingRepository.BookAsync(b =>
+            b.Service_CatalogId == dto.Service_CatalogId &&
+            b.Status != Data.Config.BookingStatus.Cancelled && b.StartDate < endDate &&
             startDate < b.EndDate);
             if (hasOverlap)
                 return new ConflictObjectResult("Booking overlaps.");
@@ -77,7 +77,6 @@ namespace Multi_Vendor_Event_Booking_System.Services
         public async Task<List<BookingDTO>> GetAllBookings()
         {
             var bookings = await _bookingRepository.GetAllBookingsAsync();
-
             return _mapper.Map<List<BookingDTO>>(bookings);
         }
 
