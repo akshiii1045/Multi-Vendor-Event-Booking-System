@@ -21,6 +21,5 @@ namespace Multi_Vendor_Event_Booking_System.Data.Config
                 .HasForeignKey(n => n.VendorId)
                 .HasConstraintName("FK_Services_Vendor");
         }
-
     }
 }
